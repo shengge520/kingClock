@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King时钟</title>
+    <style>
+        body{
+            background: #0d1320;
+            overflow: hidden;
+        }
+        #timer{
+            text-align: center;
+            font-size:56vh;
+            font-weight: bold;
+            line-height: 56vh;
+            color:#e2ecfd;
+        }
+        #date{
+            margin-top:0px;
+            text-align: center;
+            font-size:28vh;
+            font-weight: bold;
+            color:#e2ecfd;
+        }
+        .about{
+            width:600px;
+            margin:0 auto;
+            padding-top:20px;
+            display: flex;
+            align-items : center;
+            
+        }
+        .about .item{
+            color:white;
+            flex:1;
+            text-align: center;
+        }
+        .about .item a{
+            text-decoration: none;
+        }
+        .about .item .gzh{
+            font-size: 28px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="about">
+        <div class="item">
+            <a target="_blank" href="https://s1.ax1x.com/2023/03/25/ppDCn6P.jpg">
+                <span class="gzh">公众号</span>
+            </a>
+        </div>
+        <div class="item">
+            <a target="_blank" href="https://segmentfault.com/u/mrsheng">
+                <img src="./img/zhihu.svg" alt="">
+            </a>
+        </div>
+        <div class="item">
+            <a target="_blank" href="https://github.com/shengge520">
+                <img style="height:20px;" src="./img/github.svg" alt="">
+            </a>
+        </div>
+    
+    </div>
+    <div id="date">00月00日</div>
+    <div id="timer">05:00</div>
+
+    <script>
+        let showSymbl = true
+        function clockTime(){
+            let now = new Date()
+            let hour = now.getHours()+''
+            let minute = now.getMinutes() + ''
+            let month = (now.getMonth()+1)+''
+            let day = now.getDate()+''
+            if(showSymbl){
+                document.getElementById('timer').innerHTML = `${hour.padStart(2,'0')}<span>:</span>${minute.padStart(2,'0')}`
+
+            }else{
+                document.getElementById('timer').innerHTML = `${hour.padStart(2,'0')}<span style="color:#0d1320">:</span>${minute.padStart(2,'0')}`
+            }
+            document.getElementById('date').innerHTML = `${month.padStart(2,'0')}月${day.padStart(2,'0')}日`
+
+            showSymbl = !showSymbl
+        }
+        clockTime()
+        setInterval(()=>{
+            clockTime()
+        },1000)
+    </script>
+
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a8baaf55cb517a031547310e64e9ff39";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+</body>
+</html>
